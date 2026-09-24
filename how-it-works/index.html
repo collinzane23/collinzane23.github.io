@@ -843,7 +843,7 @@
       <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);">How It Works</h2>
       <p style="font-size:1.1rem;">From the first call to the certificate, here is exactly what happens when you hire us.</p>
 <h3>1. You call or send a request</h3><p>Tell us roughly what you have and where. Boxes, bags, drawers, a filing cabinet. Use the estimator on the pricing page if it helps. We answer the phone; if we are in the truck, we call back the same day.</p>
-<h3>2. We quote it in writing</h3><p>By text or email, with every line item: shredding, travel, and any extras. The number on the quote is the number on the invoice.</p>
+<h3>2. We quote it in writing</h3><p>By text or email, with every line item: shredding, travel, and any extras. The number on the quote is the number on the invoice. The only exception is if the number of boxes or items is different when we arrive than what you estimated; then the price adjusts to what's actually there, and we discuss it with you before anything is charged or shredded.</p>
 <h3>3. We schedule around you</h3><p>Galion, Bucyrus, Mansfield and Marion are usually same-day or next-day. Farther out we tell you the next route day. Evenings and weekends on request.</p>
 <h3>4. The truck arrives</h3><p>We park in your driveway or lot, carry the boxes out, and shred them in front of you. Staples and clips are fine. A typical residential job takes twenty to forty minutes; a file room takes a morning.</p>
 <h3>5. You get the certificate</h3><p>Signed on the spot, with the date, volume and method. Keep it with your records.</p>
@@ -942,6 +942,7 @@
     var q=new URLSearchParams(window.location.search);
     if(q.get('volume')){ d.value='Estimated volume: about '+q.get('volume')+' standard boxes (~'+q.get('lbs')+' lbs).\n'; }
     if(q.get('estimate')){ d.value='Website estimate — '+q.get('estimate')+'\n'; }
+    if(q.get('sent')){ var n=document.getElementById('form-note'); if(n){ n.innerHTML='<strong style="color:var(--ink);">Sent &mdash; thank you.</strong> We will call or email you back, usually within one business day.'; setTimeout(function(){ n.scrollIntoView({behavior:'smooth',block:'center'}); },300); } }
   })();
 
   function toggleMenu(){
@@ -1080,49 +1081,13 @@
   }
   if(document.querySelector('.vol-grid')){ vol(); }
 
-  // Form delivery via FormSubmit (free, no account). The first real submission
-  // triggers a one-time activation email to contact@mopsops.com - click the link
-  // in it once and every submission after that is delivered automatically.
-  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/contact@mopsops.com';
-
-  function sendQuote(e){
-    e.preventDefault();
-    var note = document.getElementById('form-note');
-    var btn = e.target.querySelector('button[type=submit]');
-    var v = function(id){ return document.getElementById(id).value.trim(); };
-    var data = {
-      'Name': v('f-name'),
-      'Phone': v('f-phone'),
-      'Email': v('f-email') || '(not given)',
-      'What they need': v('f-service'),
-      'Town': v('f-town') || '(not given)',
-      'Preferred date': v('f-date') || '(flexible)',
-      'Details': v('f-details') || '(none)',
-      _subject: 'Website quote request: ' + v('f-service') + (v('f-town') ? ' - ' + v('f-town') : ''),
-      _replyto: v('f-email'),
-      _template: 'table',
-      _captcha: 'false',
-      _honey: document.getElementById('f-honey').value
-    };
-    if(data._honey){ return false; }
-    if(!FORM_ENDPOINT){
-      note.textContent = 'Online form is not connected yet. Please call (567) 202-2660 or email contact@mopsops.com and we\'ll get right back to you.';
-      return false;
-    }
-    btn.disabled = true; btn.textContent = 'Sending…'; note.textContent = '';
-    fetch(FORM_ENDPOINT, { method:'POST', headers:{ 'Accept':'application/json', 'Content-Type':'application/json' }, body: JSON.stringify(data) })
-      .then(function(r){
-        if(r.ok){
-          e.target.reset();
-          note.textContent = 'Sent. We\'ll call or email you back, usually within one business day.';
-          btn.textContent = 'Request Sent';
-        } else { throw new Error('bad status'); }
-      })
-      .catch(function(){
-        btn.disabled = false; btn.textContent = 'Send Request';
-        note.textContent = 'Something went wrong sending the form. Please call (567) 202-2660 or email contact@mopsops.com.';
-      });
-    return false;
+  // Form delivery via FormSubmit (standard POST). After sending, FormSubmit returns the visitor to /contact/?sent=1.
+  function prepQuote(e){
+    var f=e.target, svc=document.getElementById('f-service').value, town=document.getElementById('f-town').value.trim();
+    document.getElementById('f-subject').value='Website quote request: '+svc+(town?' - '+town:'');
+    if(document.getElementById('f-honey').value){ e.preventDefault(); return false; }
+    var btn=f.querySelector('button[type=submit]'); btn.disabled=true; btn.textContent='Sending\u2026';
+    return true;
   }
 
   window.addEventListener('error', function(ev){ if(ev && ev.message && /replaceState|pushState/.test(ev.message)){ ev.preventDefault(); } });

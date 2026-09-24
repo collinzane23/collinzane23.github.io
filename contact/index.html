@@ -874,22 +874,26 @@
         </div>
       </div>
 
-      <form onsubmit="return sendQuote(event)">
+      <form id="quote-form" action="https://formsubmit.co/contact@mopsops.com" method="POST" onsubmit="return prepQuote(event)">
+        <input type="hidden" name="_subject" id="f-subject" value="Website quote request">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" id="f-next" value="https://www.mopsops.com/contact/?sent=1">
         <div class="field">
           <label for="f-name">Name</label>
-          <input id="f-name" name="name" type="text" required>
+          <input id="f-name" name="Name" type="text" required>
         </div>
         <div class="field">
           <label for="f-phone">Phone</label>
-          <input id="f-phone" name="phone" type="tel" required autocomplete="tel">
+          <input id="f-phone" name="Phone" type="tel" required autocomplete="tel">
         </div>
         <div class="field">
           <label for="f-email">Email <span style="font-weight:400; color:var(--slate);">(optional)</span></label>
-          <input id="f-email" name="email" type="email" autocomplete="email">
+          <input id="f-email" name="Email" type="email" autocomplete="email">
         </div>
         <div class="field">
           <label for="f-service">What do you need?</label>
-          <select id="f-service" name="service">
+          <select id="f-service" name="What they need">
             <option>One-time shredding (purge)</option>
             <option>Recurring shredding</option>
             <option>Office / estate cleanout</option>
@@ -898,15 +902,15 @@
         </div>
         <div class="field">
           <label for="f-date">Preferred date <span style="font-weight:400; color:var(--slate);">(optional)</span></label>
-          <input id="f-date" name="date" type="text" placeholder="e.g. next Tuesday, or any weekday morning">
+          <input id="f-date" name="Preferred date" type="text" placeholder="e.g. next Tuesday, or any weekday morning">
         </div>
         <div class="field">
           <label for="f-town">Town or city</label>
-          <input id="f-town" name="town" type="text" placeholder="e.g. Galion, Mansfield, Marion">
+          <input id="f-town" name="Town" type="text" placeholder="e.g. Galion, Mansfield, Marion">
         </div>
         <div class="field">
           <label for="f-details">Details</label>
-          <textarea id="f-details" name="details" placeholder="Rough amount of paper, home or business, and preferred timing"></textarea>
+          <textarea id="f-details" name="Details" placeholder="Rough amount of paper, home or business, and preferred timing"></textarea>
         </div>
         <input id="f-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px;" aria-hidden="true">
         <button class="btn btn-accent" type="submit">Send Request</button>
@@ -1000,6 +1004,7 @@
     var q=new URLSearchParams(window.location.search);
     if(q.get('volume')){ d.value='Estimated volume: about '+q.get('volume')+' standard boxes (~'+q.get('lbs')+' lbs).\n'; }
     if(q.get('estimate')){ d.value='Website estimate — '+q.get('estimate')+'\n'; }
+    if(q.get('sent')){ var n=document.getElementById('form-note'); if(n){ n.innerHTML='<strong style="color:var(--ink);">Sent &mdash; thank you.</strong> We will call or email you back, usually within one business day.'; setTimeout(function(){ n.scrollIntoView({behavior:'smooth',block:'center'}); },300); } }
   })();
 
   function toggleMenu(){
@@ -1138,49 +1143,13 @@
   }
   if(document.querySelector('.vol-grid')){ vol(); }
 
-  // Form delivery via FormSubmit (free, no account). The first real submission
-  // triggers a one-time activation email to contact@mopsops.com - click the link
-  // in it once and every submission after that is delivered automatically.
-  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/contact@mopsops.com';
-
-  function sendQuote(e){
-    e.preventDefault();
-    var note = document.getElementById('form-note');
-    var btn = e.target.querySelector('button[type=submit]');
-    var v = function(id){ return document.getElementById(id).value.trim(); };
-    var data = {
-      'Name': v('f-name'),
-      'Phone': v('f-phone'),
-      'Email': v('f-email') || '(not given)',
-      'What they need': v('f-service'),
-      'Town': v('f-town') || '(not given)',
-      'Preferred date': v('f-date') || '(flexible)',
-      'Details': v('f-details') || '(none)',
-      _subject: 'Website quote request: ' + v('f-service') + (v('f-town') ? ' - ' + v('f-town') : ''),
-      _replyto: v('f-email'),
-      _template: 'table',
-      _captcha: 'false',
-      _honey: document.getElementById('f-honey').value
-    };
-    if(data._honey){ return false; }
-    if(!FORM_ENDPOINT){
-      note.textContent = 'Online form is not connected yet. Please call (567) 202-2660 or email contact@mopsops.com and we\'ll get right back to you.';
-      return false;
-    }
-    btn.disabled = true; btn.textContent = 'Sending…'; note.textContent = '';
-    fetch(FORM_ENDPOINT, { method:'POST', headers:{ 'Accept':'application/json', 'Content-Type':'application/json' }, body: JSON.stringify(data) })
-      .then(function(r){
-        if(r.ok){
-          e.target.reset();
-          note.textContent = 'Sent. We\'ll call or email you back, usually within one business day.';
-          btn.textContent = 'Request Sent';
-        } else { throw new Error('bad status'); }
-      })
-      .catch(function(){
-        btn.disabled = false; btn.textContent = 'Send Request';
-        note.textContent = 'Something went wrong sending the form. Please call (567) 202-2660 or email contact@mopsops.com.';
-      });
-    return false;
+  // Form delivery via FormSubmit (standard POST). After sending, FormSubmit returns the visitor to /contact/?sent=1.
+  function prepQuote(e){
+    var f=e.target, svc=document.getElementById('f-service').value, town=document.getElementById('f-town').value.trim();
+    document.getElementById('f-subject').value='Website quote request: '+svc+(town?' - '+town:'');
+    if(document.getElementById('f-honey').value){ e.preventDefault(); return false; }
+    var btn=f.querySelector('button[type=submit]'); btn.disabled=true; btn.textContent='Sending\u2026';
+    return true;
   }
 
   window.addEventListener('error', function(ev){ if(ev && ev.message && /replaceState|pushState/.test(ev.message)){ ev.preventDefault(); } });
