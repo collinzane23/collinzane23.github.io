@@ -861,7 +861,7 @@
 
   <section class="block band">
     <div class="wrap">
-      <div class="section-head"><h2>States we serve</h2><p>Five states, 34 service areas, one truck. Pick your state for drive times, travel charges, local rules and every town on the route.</p></div>
+      <div class="section-head"><h2>States we serve</h2><p>Five states, 34 regional service areas plus 31 towns within an hour of Galion, one truck. Pick your state for drive times, travel charges, local rules and every town on the route.</p></div>
       <div class="state-grid">
         <div class="hub"><h3>Ohio</h3><p>19 service areas: Galion, Mansfield, Bucyrus, Marion&hellip;</p><a class="more" href="/service-area/ohio/">Shredding in Ohio</a></div>
         <div class="hub"><h3>Michigan</h3><p>3 service areas: Monroe, Adrian, Ann Arbor</p><a class="more" href="/service-area/michigan/">Shredding in Michigan</a></div>
@@ -874,7 +874,7 @@
 
   <section class="block">
     <div class="wrap">
-      <div class="section-head"><h2>All 34 service areas</h2><p>Nearest first. Each has its own page.</p></div>
+      <div class="section-head"><h2>All 34 regional service areas</h2><p>Nearest first. Each has its own page. Smaller towns within an hour of Galion are <a href="#towns">listed below</a>.</p></div>
       <div class="metro-list">
         <div class="metro"><a class="nm" href="/paper-shredding-galion-oh/">Galion, OH</a><span class="d">Home base. Same-day or next-day service, no travel charge. $75 travel.</span><a class="go" href="/paper-shredding-galion-oh/">Details</a></div>
         <div class="metro"><a class="nm" href="/paper-shredding-mansfield-oh/">Mansfield, OH</a><span class="d">20 minutes from Galion. Our busiest route; recurring bins for the hospital and legal corridor. $75 travel.</span><a class="go" href="/paper-shredding-mansfield-oh/">Details</a></div>
@@ -911,10 +911,17 @@
         <div class="metro"><a class="nm" href="/paper-shredding-milton-barboursville-wv/">Milton &amp; Barboursville, WV</a><span class="d">3 h 45 m from Galion. Between Teays Valley and Huntington; every trip passes through. Cleanouts, recurring accounts and Shred Days.</span><a class="go" href="/paper-shredding-milton-barboursville-wv/">Details</a></div>
         <div class="metro"><a class="nm" href="/paper-shredding-huntington-wv/">Huntington, WV</a><span class="d">3 h 45 m from Galion. Tri-State area; scheduled with Charleston trips. Cleanouts, recurring accounts and Shred Days.</span><a class="go" href="/paper-shredding-huntington-wv/">Details</a></div>
       </div>
-      <p style="margin-top:20px; font-size:.95rem; color:var(--slate);">Don't see your town? Call (567) 202-2660 &mdash; if it's within about two hours of Galion we'll come to you, and Charleston, Huntington and Parkersburg are served on scheduled trips.</p>
+      <p style="margin-top:20px; font-size:.95rem; color:var(--slate);">Don't see your town? Check the <a href="#towns">towns within an hour</a> below, or call (567) 202-2660 &mdash; if it's within about two hours of Galion we'll come to you, and Charleston, Huntington and Parkersburg are served on scheduled trips.</p>
     </div>
   </section>
 
+
+  <section class="block tight band" id="towns">
+    <div class="wrap">
+      <div class="section-head"><h2>Towns within an hour of Galion</h2><p>Smaller towns inside our one-hour zone, each with its own page. $75 flat travel on one-time jobs, none on recurring service.</p></div>
+      <div class="law-nav" style="margin-bottom:0;"><a href="/paper-shredding-crestline-oh/">Crestline</a><a href="/paper-shredding-caledonia-oh/">Caledonia</a><a href="/paper-shredding-mount-gilead-oh/">Mount Gilead</a><a href="/paper-shredding-new-washington-oh/">New Washington</a><a href="/paper-shredding-ontario-oh/">Ontario</a><a href="/paper-shredding-shelby-oh/">Shelby</a><a href="/paper-shredding-lexington-oh/">Lexington</a><a href="/paper-shredding-bellville-oh/">Bellville</a><a href="/paper-shredding-cardington-oh/">Cardington</a><a href="/paper-shredding-plymouth-oh/">Plymouth</a><a href="/paper-shredding-attica-oh/">Attica</a><a href="/paper-shredding-butler-oh/">Butler</a><a href="/paper-shredding-fredericktown-oh/">Fredericktown</a><a href="/paper-shredding-greenwich-oh/">Greenwich</a><a href="/paper-shredding-prospect-oh/">Prospect</a><a href="/paper-shredding-upper-sandusky-oh/">Upper Sandusky</a><a href="/paper-shredding-willard-oh/">Willard</a><a href="/paper-shredding-new-london-oh/">New London</a><a href="/paper-shredding-tiffin-oh/">Tiffin</a><a href="/paper-shredding-bellevue-oh/">Bellevue</a><a href="/paper-shredding-carey-oh/">Carey</a><a href="/paper-shredding-loudonville-oh/">Loudonville</a><a href="/paper-shredding-richwood-oh/">Richwood</a><a href="/paper-shredding-centerburg-oh/">Centerburg</a><a href="/paper-shredding-kenton-oh/">Kenton</a><a href="/paper-shredding-norwalk-oh/">Norwalk</a><a href="/paper-shredding-sunbury-oh/">Sunbury</a><a href="/paper-shredding-clyde-oh/">Clyde</a><a href="/paper-shredding-wellington-oh/">Wellington</a><a href="/paper-shredding-fremont-oh/">Fremont</a><a href="/paper-shredding-oberlin-oh/">Oberlin</a><a href="/service-area/ohio/#towns">All Ohio towns</a></div>
+    </div>
+  </section>
   <section class="band-dark cta-band">
     <div class="wrap">
       <div><h2>Need shredding in your town?</h2><p>Tell us where you are and we'll quote it &mdash; travel included.</p></div>
@@ -1069,8 +1076,8 @@
   }
   if(document.getElementById('c-min')){ calc(); }
   var EST_TAB='once';
-  var FUEL_ON=true; // set to false when regional diesel drops below $5.80
-  function estTab(t){ EST_TAB=t; var zr=document.getElementById('zone-row'); if(zr){ zr.style.display = t==='once' ? '' : 'none'; } document.getElementById('pane-once').classList.toggle('active',t==='once'); document.getElementById('pane-rec').classList.toggle('active',t==='rec'); document.getElementById('tab-once').setAttribute('aria-selected',t==='once'); document.getElementById('tab-rec').setAttribute('aria-selected',t==='rec'); est(); }
+  var FUEL_ON=false; // set to true when regional diesel is above $5.80
+  function estTab(t){ EST_TAB=t; var zr=document.getElementById('zone-row'); if(zr){ zr.style.display = t==='once' ? '' : 'none'; } var lr=document.getElementById('local-row'); if(lr){ lr.style.display = FUEL_ON ? '' : 'none'; } document.getElementById('pane-once').classList.toggle('active',t==='once'); document.getElementById('pane-rec').classList.toggle('active',t==='rec'); document.getElementById('tab-once').setAttribute('aria-selected',t==='once'); document.getElementById('tab-rec').setAttribute('aria-selected',t==='rec'); est(); }
   function estStep(id,d){ var el=document.getElementById(id); el.value=Math.max(0,(parseInt(el.value)||0)+d); est(); }
   function tier(n,first,after){ return n<=7 ? n*first : 7*first+(n-7)*after; }
   function est(){
