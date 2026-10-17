@@ -1024,14 +1024,14 @@
             <tr><td>Monthly service, 1 executive console</td><td>$65.00</td></tr>
             <tr><td>Console rental</td><td>$10.00</td></tr>
             <tr><td>Travel</td><td>$0.00</td></tr>
-            <tr><td>Fuel surcharge <span style="color:var(--slate);">(not in effect &mdash; diesel below $5.80)</span></td><td>$0.00</td></tr>
+            <tr><td>Fuel surcharge <span style="color:var(--slate);">(in effect &mdash; diesel above $5.80)</span></td><td>$15.00</td></tr>
             <tr><td>Certificate of destruction</td><td>Included</td></tr>
-            <tr class="total"><td>Amount due</td><td>$75.00</td></tr>
+            <tr class="total"><td>Amount due</td><td>$90.00</td></tr>
           </table>
-          <p class="note">Quoted as $75 a month. Invoiced as $75 a month. Every line above is also on the rate sheet on this page &mdash; including the one surcharge we have, and exactly when it applies.</p>
+          <p class="note">Quoted as $90 a month. Invoiced as $90 a month. Every line above is also on the rate sheet on this page &mdash; including the surcharge, and exactly when it applies.</p>
         </div>
       </div>
-      <p style="margin-top:20px; max-width:70ch; color:var(--slate);">Our headline rate is higher, and our invoice is lower. If diesel ever climbs above $5.80, a $15 surcharge appears as its own line &mdash; and you'd see it on the quote before it ever showed up on an invoice. Either way, the number we quote is the number you pay. We'd rather show you the real total than win a comparison on a number that isn't real.</p>
+      <p style="margin-top:20px; max-width:70ch; color:var(--slate);">Our headline rate is higher, and our invoice is still lower &mdash; even with our fuel surcharge on. When diesel drops back under $5.80, it's $75. Either way, the number we quote is the number you pay. We'd rather show you the real total than win a comparison on a number that isn't real.</p>
     </div>
   </section>
 
@@ -1053,7 +1053,7 @@
       <div>
         <h2 style="font-size:1.5rem;">Fuel surcharge status</h2>
         <p style="color:var(--slate);">Our only variable fee, shown in the open. It's $15 per job &mdash; every one-time job, and recurring pickups within an hour of Galion &mdash; and only when the regional diesel price is above $5.80 per gallon.</p>
-        <div class="fuel-status" id="fuel-status"><span class="dot"></span><span><strong>Not in effect.</strong> Regional diesel is below $5.80 &mdash; no fuel surcharge on any job. Checked <span id="fuel-date">October 2026</span>.</span></div>
+        <div class="fuel-status on" id="fuel-status"><span class="dot"></span><span><strong>In effect.</strong> Regional diesel is above $5.80 &mdash; $15 per job. Checked <span id="fuel-date">October 2026</span>.</span></div>
         <p style="margin-top:16px; font-size:.9rem; color:var(--slate);">We update this line whenever the price crosses the line either way. If it's ever in effect, the $15 appears as its own line on your quote and invoice &mdash; never folded into another number.</p>
         <h2 style="font-size:1.5rem; margin-top:36px;">Get it in writing</h2>
         <p>Every job starts with a written quote &mdash; by email or text &mdash; that lists the same line items you'll see on the invoice. Keep it. If the two ever don't match, you pay the quote.</p>
@@ -1386,7 +1386,7 @@
   }
   if(document.getElementById('c-min')){ calc(); }
   var EST_TAB='once';
-  var FUEL_ON=false; // set to true when regional diesel is above $5.80
+  var FUEL_ON=true; // set to false when regional diesel drops below $5.80
   function estTab(t){ EST_TAB=t; var zr=document.getElementById('zone-row'); if(zr){ zr.style.display = t==='once' ? '' : 'none'; } var lr=document.getElementById('local-row'); if(lr){ lr.style.display = FUEL_ON ? '' : 'none'; } document.getElementById('pane-once').classList.toggle('active',t==='once'); document.getElementById('pane-rec').classList.toggle('active',t==='rec'); document.getElementById('tab-once').setAttribute('aria-selected',t==='once'); document.getElementById('tab-rec').setAttribute('aria-selected',t==='rec'); est(); }
   function estStep(id,d){ var el=document.getElementById(id); el.value=Math.max(0,(parseInt(el.value)||0)+d); est(); }
   function tier(n,first,after){ return n<=7 ? n*first : 7*first+(n-7)*after; }

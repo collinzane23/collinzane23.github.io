@@ -922,7 +922,7 @@
 
   <section class="block" id="towns">
     <div class="wrap">
-      <div class="section-head"><h2>Every town within an hour of Galion</h2><p>31 more towns with their own page. All of them are inside our one-hour zone: $75 flat travel on one-time jobs, no travel charge on recurring service, and no fuel surcharge while diesel is below $5.80.</p></div>
+      <div class="section-head"><h2>Every town within an hour of Galion</h2><p>31 more towns with their own page. All of them are inside our one-hour zone: $75 flat travel on one-time jobs, no travel charge on recurring service, and a $15 fuel surcharge only while diesel is above $5.80.</p></div>
       <div class="metro-list">
         <div class="metro"><a class="nm" href="/paper-shredding-crestline-oh/">Crestline</a><span class="d">10 minutes from Galion &middot; Crawford County. $75 travel on one-time jobs; none on recurring.</span><a class="go" href="/paper-shredding-crestline-oh/">Shredding in Crestline</a></div>
         <div class="metro"><a class="nm" href="/paper-shredding-caledonia-oh/">Caledonia</a><span class="d">20 minutes from Galion &middot; Marion County. $75 travel on one-time jobs; none on recurring.</span><a class="go" href="/paper-shredding-caledonia-oh/">Shredding in Caledonia</a></div>
@@ -1120,7 +1120,7 @@
   }
   if(document.getElementById('c-min')){ calc(); }
   var EST_TAB='once';
-  var FUEL_ON=false; // set to true when regional diesel is above $5.80
+  var FUEL_ON=true; // set to false when regional diesel drops below $5.80
   function estTab(t){ EST_TAB=t; var zr=document.getElementById('zone-row'); if(zr){ zr.style.display = t==='once' ? '' : 'none'; } var lr=document.getElementById('local-row'); if(lr){ lr.style.display = FUEL_ON ? '' : 'none'; } document.getElementById('pane-once').classList.toggle('active',t==='once'); document.getElementById('pane-rec').classList.toggle('active',t==='rec'); document.getElementById('tab-once').setAttribute('aria-selected',t==='once'); document.getElementById('tab-rec').setAttribute('aria-selected',t==='rec'); est(); }
   function estStep(id,d){ var el=document.getElementById(id); el.value=Math.max(0,(parseInt(el.value)||0)+d); est(); }
   function tier(n,first,after){ return n<=7 ? n*first : 7*first+(n-7)*after; }
