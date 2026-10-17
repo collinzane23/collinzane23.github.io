@@ -1084,17 +1084,17 @@
       var fuel = (FUEL_ON && document.getElementById('e-local').value==='1' && (rb+rc)) ? 15 : 0;
       if(fuel){ sub+=fuel; lines.push(['Fuel surcharge (in effect)', fmt(fuel)]); }
       var nc=rb+rc, visits={w:4.33,b:2.17,m:1,q:0.5}[f];
-      window.EST_MONTHLY = nc ? Math.round(sub*visits + nc*10) : 0;
+      window.EST_MONTHLY = nc ? Math.round(sub*visits) : 0;
     }
     var zone=EST_TAB==='once' ? (parseInt(document.getElementById('e-zone').value)||0) : 0, total=sub, subEl=document.getElementById('est-sub');
     var box=document.getElementById('est-lines');
     if(!lines.length){ box.innerHTML='<div class="est-line muted"><span>Add a few items to see your price.</span></div>'; document.getElementById('est-total').textContent='$0'; subEl.textContent='Everything included. No hidden fees.'; return; }
-    if(EST_TAB==='rec'){ lines.push(['Travel', 'none \u2014 included']); lines.push(['Container rental', '$10/mo each']); }
+    if(EST_TAB==='rec'){ lines.push(['Travel', 'none \u2014 included']); lines.push(['Container rental', 'none \u2014 included']); }
     else { if(window.EST_BIG){ lines.push(['Travel', 'waived (100+ boxes)']); } else if(zone){ total+=zone; lines.push(['Travel (flat)', fmt(zone)]); } else { lines.push(['Travel', 'quoted']); }
       if(FUEL_ON){ total+=15; lines.push(['Fuel surcharge (in effect)', fmt(15)]); } }
     box.innerHTML=lines.map(function(l){ return '<div class="est-line"><span>'+l[0]+'</span><span>'+l[1]+'</span></div>'; }).join('');
     document.getElementById('est-total').textContent=fmt(total);
-    subEl.textContent = EST_TAB==='once' ? (zone ? 'Total for the visit, everything included.' : 'Plus travel \u2014 we\u2019ll quote it when you call.') : 'Per visit, no travel charge. About '+fmt(window.EST_MONTHLY||0)+' per month including container rental.';
+    subEl.textContent = EST_TAB==='once' ? (zone ? 'Total for the visit, everything included.' : 'Plus travel \u2014 we\u2019ll quote it when you call.') : 'Per visit, no travel charge. About '+fmt(window.EST_MONTHLY||0)+' per month, container included.';
   }
   function estSend(e){
     var t=document.getElementById('est-total').textContent;
