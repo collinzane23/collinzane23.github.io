@@ -134,7 +134,7 @@
   }
  ]
 }</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the total on my first invoice, all fees included?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: the number the calculator shows you. The only thing that changes it is if the box count is different when we arrive, and we discuss that with you before we charge or shred anything. If a company can't answer this in one sentence, the fees are in the fine print."}}, {"@type": "Question", "name": "Is there a fuel or environmental surcharge, and what triggers it?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: no environmental fee ever. A $15 fuel surcharge per job, only when regional diesel is above $5.80, and it's shown as its own line. Many companies charge a percentage every month regardless of fuel prices."}}, {"@type": "Question", "name": "How long is the term, and what happens when it ends?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: 12 months. It ends. If you'd like to continue, we'll ask. Watch for 3- to 5-year terms with automatic renewal and a narrow cancellation window."}}, {"@type": "Question", "name": "Does the price go up, and how would I find out?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: there's no automatic escalator in our agreement. If market conditions ever force an adjustment, you'll hear it from us in writing before it appears on any invoice \u2014 never as a surprise on the bill. Watch for \"annual rate adjustment\" or \"CPI escalator\" clauses that raise the price quietly every year."}}, {"@type": "Question", "name": "Is the container included, or is it a separate fee?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: $10 a month per container, printed on the rate sheet and the quote. The problem isn't the fee \u2014 it's not being told."}}, {"@type": "Question", "name": "Is there a charge for the certificate of destruction?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: never. It's part of the job."}}, {"@type": "Question", "name": "Can I watch my documents being destroyed?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: yes, every time. It happens in your parking lot. Off-site services can't offer this; ask how long documents sit before destruction."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the total on my first invoice, all fees included?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: the number the calculator shows you. The only thing that changes it is if the box count is different when we arrive, and we discuss that with you before we charge or shred anything. If a company can't answer this in one sentence, the fees are in the fine print."}}, {"@type": "Question", "name": "Is there a fuel or environmental surcharge, and what triggers it?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: no environmental fee ever. A $15 fuel surcharge per job, only when regional diesel is above $5.80, and it's shown as its own line. Many companies charge a percentage every month regardless of fuel prices."}}, {"@type": "Question", "name": "How long is the term, and what happens when it ends?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: 12 months. It ends. If you'd like to continue, we'll ask. Watch for 3- to 5-year terms with automatic renewal and a narrow cancellation window."}}, {"@type": "Question", "name": "Does the price go up, and how would I find out?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: there's no automatic escalator in our agreement. If market conditions ever force an adjustment, you'll hear it from us in writing before it appears on any invoice \u2014 never as a surprise on the bill. Watch for \"annual rate adjustment\" or \"CPI escalator\" clauses that raise the price quietly every year."}}, {"@type": "Question", "name": "Is the container included, or is it a separate fee?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: included. No container fee. If a competitor charges one, the problem isn't the fee \u2014 it's not being told."}}, {"@type": "Question", "name": "Is there a charge for the certificate of destruction?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: never. It's part of the job."}}, {"@type": "Question", "name": "Can I watch my documents being destroyed?", "acceptedAnswer": {"@type": "Answer", "text": "Ours: yes, every time. It happens in your parking lot. Off-site services can't offer this; ask how long documents sit before destruction."}}]}</script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0RL4BX4BQ8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0RL4BX4BQ8');</script>
@@ -864,7 +864,7 @@
           <div class="est-pane" id="pane-rec">
             <div class="est-row" id="local-row"><span class="lbl">Within an hour of Galion?<small>Local recurring pickups carry a $15 fuel surcharge while diesel is above $5.80</small></span>
               <select id="e-local" onchange="est()"><option value="1" selected>Yes</option><option value="0">No, farther out</option></select></div>
-            <div class="est-row"><span class="lbl">How often we come<small>Per container, per visit &middot; no travel charge &middot; $10/month container rental</small></span>
+            <div class="est-row"><span class="lbl">How often we come<small>Per container, per visit &middot; no travel charge &middot; container included</small></span>
               <select id="e-freq" onchange="est()"><option value="w">Weekly</option><option value="b">Every 2 weeks</option><option value="m" selected>Monthly</option><option value="q">Every 2 months</option></select></div>
             <div class="est-row"><span class="lbl">64-gallon high-security bins<small>Copy room or back office &middot; holds ~200 lbs</small></span><span class="stepper"><button type="button" aria-label="Decrease" onclick="estStep('e-rbin',-1)">&minus;</button><input id="e-rbin" type="number" min="0" value="0" oninput="est()"><button type="button" aria-label="Increase" onclick="estStep('e-rbin',1)">+</button></span></div>
             <div class="est-row"><span class="lbl">Executive security consoles<small>Fits under a desk &middot; holds ~100 lbs</small></span><span class="stepper"><button type="button" aria-label="Decrease" onclick="estStep('e-rcon',-1)">&minus;</button><input id="e-rcon" type="number" min="0" value="0" oninput="est()"><button type="button" aria-label="Increase" onclick="estStep('e-rcon',1)">+</button></span></div>
@@ -899,7 +899,7 @@
             <ul>
               <li><strong>One page, one year.</strong> A simple 12-month agreement with a plain cancellation clause &mdash; no auto-renewal traps, no penalty for changing frequency.</li>
               <li><strong>No travel charge.</strong> Recurring accounts are routed together, so we don't bill travel at all &mdash; the visit price is the whole price.</li>
-              <li><strong>One honest extra, disclosed up front.</strong> Containers rent for $10 a month each, and a $15 fuel surcharge applies per job (one-time jobs anywhere; recurring pickups within an hour of Galion) only when regional diesel is above $5.80 a gallon. No "environmental" or "administrative" fees, ever.</li>
+              <li><strong>One honest extra, disclosed up front.</strong> A $15 fuel surcharge applies per job (one-time jobs anywhere; recurring pickups within an hour of Galion) only when regional diesel is above $5.80 a gallon. Containers are included with recurring service at no charge. No "environmental" or "administrative" fees, ever.</li>
               <li><strong>Same person, every visit.</strong> The owner services your account &mdash; not a rotating crew with a route sheet.</li>
               <li><strong>Watch it, then file it.</strong> Shredded on-site in your lot, with a certificate of destruction every visit for your HIPAA, GLBA or FACTA file.</li>
             </ul>
@@ -952,7 +952,7 @@
       </div>
 
       <h2 style="font-size:1.5rem; margin-top:48px;">Recurring service</h2>
-      <p style="color:var(--slate);">We place locked containers in your office and empty them on schedule. Rates are per container, per service visit, with no travel charge. Containers rent for $10 per month each. Simple 12-month agreement.</p>
+      <p style="color:var(--slate);">We place locked containers in your office and empty them on schedule. Rates are per container, per service visit, with no travel charge and no container rental fee. Simple 12-month agreement.</p>
       <div style="overflow-x:auto;">
         <table class="retention">
           <thead><tr><th>Container</th><th>Weekly</th><th>Every 2 weeks</th><th>Monthly</th><th>Every 2 months</th></tr></thead>
@@ -977,7 +977,7 @@
           <h2>Every dollar we charge is on this page</h2>
           <p style="font-size:1.1rem;">We've read the invoices people bring us from the big national shredding companies. A low headline rate, then a fuel surcharge, an "environmental" fee, an administrative fee, a container fee that wasn't mentioned, an annual price increase written into the fine print, and a contract that renews itself unless you cancel in a two-week window three years from now.</p>
           <p>We started this company partly because that's not how a Galion business should treat its neighbors. So here's the whole list of what we charge. If it isn't on this page, we don't charge it.</p>
-          <p style="color:var(--slate);">The only two extras that exist are printed right here too: $10 a month to rent a container, and a $15 fuel surcharge per job that only kicks in if regional diesel goes above $5.80 a gallon. When they apply, you'll see them on the quote before you sign anything.</p>
+          <p style="color:var(--slate);">The only extra that exists is printed right here too: a $15 fuel surcharge per job that only kicks in if regional diesel goes above $5.80 a gallon. When it applies, you'll see it on the quote before you sign anything. Containers are included.</p>
         </div>
         <div class="check-col" style="border:1px solid var(--line); background:var(--paper);">
           <h3>What you'll never see on our invoice</h3>
@@ -1022,16 +1022,16 @@
           <div class="inv-head"><strong>Mid-Ohio Paper Shredding</strong><span>Monthly console service<br>12-month agreement</span></div>
           <table>
             <tr><td>Monthly service, 1 executive console</td><td>$65.00</td></tr>
-            <tr><td>Console rental</td><td>$10.00</td></tr>
+            <tr><td>Console rental</td><td>$0.00</td></tr>
             <tr><td>Travel</td><td>$0.00</td></tr>
             <tr><td>Fuel surcharge <span style="color:var(--slate);">(in effect &mdash; diesel above $5.80)</span></td><td>$15.00</td></tr>
             <tr><td>Certificate of destruction</td><td>Included</td></tr>
-            <tr class="total"><td>Amount due</td><td>$90.00</td></tr>
+            <tr class="total"><td>Amount due</td><td>$80.00</td></tr>
           </table>
-          <p class="note">Quoted as $90 a month. Invoiced as $90 a month. Every line above is also on the rate sheet on this page &mdash; including the surcharge, and exactly when it applies.</p>
+          <p class="note">Quoted as $80 a month. Invoiced as $80 a month. Every line above is also on the rate sheet on this page &mdash; including the surcharge, and exactly when it applies.</p>
         </div>
       </div>
-      <p style="margin-top:20px; max-width:70ch; color:var(--slate);">Our headline rate is higher, and our invoice is still lower &mdash; even with our fuel surcharge on. When diesel drops back under $5.80, it's $75. Either way, the number we quote is the number you pay. We'd rather show you the real total than win a comparison on a number that isn't real.</p>
+      <p style="margin-top:20px; max-width:70ch; color:var(--slate);">Our headline rate is higher, and our invoice is still lower &mdash; even with our fuel surcharge on. When diesel drops back under $5.80, it's $65. Either way, the number we quote is the number you pay. We'd rather show you the real total than win a comparison on a number that isn't real.</p>
     </div>
   </section>
 
@@ -1045,7 +1045,7 @@
           <details class="faq-item"><summary>Is there a fuel or environmental surcharge, and what triggers it?<span class="plus" aria-hidden="true"></span></summary><p class="faq-a"><strong>Ours: no environmental fee ever. A $15 fuel surcharge per job, only when regional diesel is above $5.80, and it's shown as its own line.</strong> Many companies charge a percentage every month regardless of fuel prices.</p></details>
           <details class="faq-item"><summary>How long is the term, and what happens when it ends?<span class="plus" aria-hidden="true"></span></summary><p class="faq-a"><strong>Ours: 12 months. It ends. If you'd like to continue, we'll ask.</strong> Watch for 3- to 5-year terms with automatic renewal and a narrow cancellation window.</p></details>
           <details class="faq-item"><summary>Does the price go up, and how would I find out?<span class="plus" aria-hidden="true"></span></summary><p class="faq-a"><strong>Ours: there's no automatic escalator in our agreement. If market conditions ever force an adjustment, you'll hear it from us in writing before it appears on any invoice &mdash; never as a surprise on the bill.</strong> Watch for "annual rate adjustment" or "CPI escalator" clauses that raise the price quietly every year.</p></details>
-          <details class="faq-item"><summary>Is the container included, or is it a separate fee?<span class="plus" aria-hidden="true"></span></summary><p class="faq-a"><strong>Ours: $10 a month per container, printed on the rate sheet and the quote.</strong> The problem isn't the fee &mdash; it's not being told.</p></details>
+          <details class="faq-item"><summary>Is the container included, or is it a separate fee?<span class="plus" aria-hidden="true"></span></summary><p class="faq-a"><strong>Ours: included. No container fee.</strong> If a competitor charges one, the problem isn't the fee &mdash; it's not being told.</p></details>
           <details class="faq-item"><summary>Is there a charge for the certificate of destruction?<span class="plus" aria-hidden="true"></span></summary><p class="faq-a"><strong>Ours: never. It's part of the job.</strong></p></details>
           <details class="faq-item"><summary>Can I watch my documents being destroyed?<span class="plus" aria-hidden="true"></span></summary><p class="faq-a"><strong>Ours: yes, every time. It happens in your parking lot.</strong> Off-site services can't offer this; ask how long documents sit before destruction.</p></details>
         </div>
@@ -1413,17 +1413,17 @@
       var fuel = (FUEL_ON && document.getElementById('e-local').value==='1' && (rb+rc)) ? 15 : 0;
       if(fuel){ sub+=fuel; lines.push(['Fuel surcharge (in effect)', fmt(fuel)]); }
       var nc=rb+rc, visits={w:4.33,b:2.17,m:1,q:0.5}[f];
-      window.EST_MONTHLY = nc ? Math.round(sub*visits + nc*10) : 0;
+      window.EST_MONTHLY = nc ? Math.round(sub*visits) : 0;
     }
     var zone=EST_TAB==='once' ? (parseInt(document.getElementById('e-zone').value)||0) : 0, total=sub, subEl=document.getElementById('est-sub');
     var box=document.getElementById('est-lines');
     if(!lines.length){ box.innerHTML='<div class="est-line muted"><span>Add a few items to see your price.</span></div>'; document.getElementById('est-total').textContent='$0'; subEl.textContent='Everything included. No hidden fees.'; return; }
-    if(EST_TAB==='rec'){ lines.push(['Travel', 'none \u2014 included']); lines.push(['Container rental', '$10/mo each']); }
+    if(EST_TAB==='rec'){ lines.push(['Travel', 'none \u2014 included']); lines.push(['Container rental', 'none \u2014 included']); }
     else { if(window.EST_BIG){ lines.push(['Travel', 'waived (100+ boxes)']); } else if(zone){ total+=zone; lines.push(['Travel (flat)', fmt(zone)]); } else { lines.push(['Travel', 'quoted']); }
       if(FUEL_ON){ total+=15; lines.push(['Fuel surcharge (in effect)', fmt(15)]); } }
     box.innerHTML=lines.map(function(l){ return '<div class="est-line"><span>'+l[0]+'</span><span>'+l[1]+'</span></div>'; }).join('');
     document.getElementById('est-total').textContent=fmt(total);
-    subEl.textContent = EST_TAB==='once' ? (zone ? 'Total for the visit, everything included.' : 'Plus travel \u2014 we\u2019ll quote it when you call.') : 'Per visit, no travel charge. About '+fmt(window.EST_MONTHLY||0)+' per month including container rental.';
+    subEl.textContent = EST_TAB==='once' ? (zone ? 'Total for the visit, everything included.' : 'Plus travel \u2014 we\u2019ll quote it when you call.') : 'Per visit, no travel charge. About '+fmt(window.EST_MONTHLY||0)+' per month, container included.';
   }
   function estSend(e){
     var t=document.getElementById('est-total').textContent;
