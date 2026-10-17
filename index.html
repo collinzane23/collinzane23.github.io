@@ -504,6 +504,17 @@
 
 
   /* ---------- Sticky mobile call bar ---------- */
+  .sd-live{ border-color:var(--accent, #2FD1E8); box-shadow:0 10px 30px rgba(15,38,60,.08); }
+  .sd-yr{ font-size:.72rem; opacity:.75; margin-top:2px; }
+  .sd-tags{ display:flex; gap:6px; flex-wrap:wrap; }
+  .sd-tag{ font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; font-weight:600; padding:3px 8px; border:1px solid var(--line); border-radius:3px; color:var(--slate); }
+  .sd-tag.free{ background:var(--ink); color:#fff; border-color:var(--ink); }
+  .sd-bring{ background:var(--paper); border-left:3px solid var(--ink); padding:10px 14px; font-size:.95rem; color:var(--graphite); margin-bottom:14px; }
+  .sd-actions{ display:flex; gap:10px; flex-wrap:wrap; }
+  .sd-actions .btn{ padding:10px 16px; font-size:.95rem; }
+  .annc{ background:var(--ink); color:#fff; text-align:center; padding:10px 16px; font-size:.95rem; }
+  .annc a{ color:#2FD1E8; font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+  @media (max-width:600px){ .sd-event{ flex-direction:column; } .sd-date{ width:100%; height:auto; justify-content:center; flex-direction:row; gap:8px; padding:10px; } .sd-yr{ margin-top:0; } }
   .call-bar{ display:none; }
   @media (max-width:760px){
     .call-bar{ display:flex; position:fixed; left:0; right:0; bottom:0; z-index:50; background:var(--ink); padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px)); gap:10px; box-shadow:0 -8px 24px rgba(0,0,0,.25); }
@@ -788,6 +799,7 @@
     .contact-grid{ grid-template-columns:1fr; }
   }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Event", "name": "Shred It Day \u2013 Bucyrus (free community shredding)", "startDate": "2026-10-20T10:00:00-04:00", "endDate": "2026-10-20T13:00:00-04:00", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "location": {"@type": "Place", "name": "Bucyrus United Methodist Church", "address": {"@type": "PostalAddress", "streetAddress": "227 S Walnut St", "addressLocality": "Bucyrus", "addressRegion": "OH", "postalCode": "44820", "addressCountry": "US"}}, "image": ["https://www.mopsops.com/og-image.png"], "description": "Free community Shred Day hosted by the Crawford County Chamber of Commerce with Bucyrus United Methodist Church. On-site shredding by Mid-Ohio Paper Shredding. Bring up to 4 boxes of personal documents per car; paper only.", "organizer": {"@type": "Organization", "name": "Crawford County Chamber of Commerce"}, "performer": {"@type": "Organization", "name": "Mid-Ohio Paper Shredding", "url": "https://www.mopsops.com/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.mopsops.com/shred-days/"}, "isAccessibleForFree": true, "url": "https://www.mopsops.com/shred-days/#upcoming"}</script>
 </head>
 <body>
 
@@ -832,6 +844,7 @@
 </header>
 
 <main>
+<div class="annc"><strong>Free Shred Day</strong> &mdash; Tue, Oct 20, 10 AM&ndash;1 PM at Bucyrus United Methodist Church. Up to 4 boxes per car. <a href="/shred-days/#upcoming">Details</a></div>
 
   <section class="hero">
     <svg class="hero-bg" viewBox="0 0 1120 420" preserveAspectRatio="none" aria-hidden="true">
@@ -1068,7 +1081,7 @@
 
 <div class="call-bar">
   <a class="btn btn-accent" href="tel:+15672022660">Call</a>
-  <a class="btn btn-ghost-light" href="sms:+15672022660?&body=Hi%20MOPS%2C%20I%27d%20like%20a%20shredding%20quote.%20Town%3A%20">Text</a>
+  <a class="btn btn-ghost-light" href="sms:+15672022660?body=Hi%20MOPS%2C%20I%27d%20like%20a%20shredding%20quote.%20Town%3A%20" data-sms="1">Text</a>
   <a class="btn btn-ghost-light" href="/contact/">Quote</a>
 </div>
 
@@ -1300,6 +1313,7 @@
     return true;
   }
 
+  (function(){ var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1); if(!ios) return; document.querySelectorAll('a[data-sms]').forEach(function(a){ a.setAttribute('href', a.getAttribute('href').replace('?body=','&body=')); }); })();
   window.addEventListener('error', function(ev){ if(ev && ev.message && /replaceState|pushState/.test(ev.message)){ ev.preventDefault(); } });
 </script>
 
