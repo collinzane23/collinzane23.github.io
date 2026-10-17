@@ -504,7 +504,7 @@
   .call-bar{ display:none; }
   @media (max-width:760px){
     .call-bar{ display:flex; position:fixed; left:0; right:0; bottom:0; z-index:50; background:var(--ink); padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px)); gap:10px; box-shadow:0 -8px 24px rgba(0,0,0,.25); }
-    .call-bar a{ flex:1; justify-content:center; padding:14px 10px; font-size:1.05rem; }
+    .call-bar a{ flex:1; justify-content:center; padding:14px 8px; font-size:1.02rem; }
     body{ padding-bottom:78px; }
   }
   /* ---------- Reviews ---------- */
@@ -868,8 +868,9 @@
 </main>
 
 <div class="call-bar">
-  <a class="btn btn-accent" href="tel:+15672022660">Call (567) 202-2660</a>
-  <a class="btn btn-ghost-light" href="/contact/">Get a Quote</a>
+  <a class="btn btn-accent" href="tel:+15672022660">Call</a>
+  <a class="btn btn-ghost-light" href="sms:+15672022660?&body=Hi%20MOPS%2C%20I%27d%20like%20a%20shredding%20quote.%20Town%3A%20">Text</a>
+  <a class="btn btn-ghost-light" href="/contact/">Quote</a>
 </div>
 
 <footer class="site">
@@ -1093,7 +1094,8 @@
   // Form delivery via FormSubmit (standard POST). After sending, FormSubmit returns the visitor to /contact/?sent=1.
   function prepQuote(e){
     var f=e.target, svc=document.getElementById('f-service').value, town=document.getElementById('f-town').value.trim();
-    document.getElementById('f-subject').value='Website quote request: '+svc+(town?' - '+town:'');
+    var pd=document.getElementById('f-date'); document.getElementById('f-subject').value=(pd&&pd.value?'Booking request ('+pd.value+'): ':'Website quote request: ')+svc+(town?' - '+town:'');
+
     if(document.getElementById('f-honey').value){ e.preventDefault(); return false; }
     var btn=f.querySelector('button[type=submit]'); btn.disabled=true; btn.textContent='Sending\u2026';
     return true;
