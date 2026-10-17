@@ -1094,7 +1094,7 @@
   }
   if(document.getElementById('c-min')){ calc(); }
   var EST_TAB='once';
-  var FUEL_ON=false; // set to true when regional diesel is above $5.80
+  var FUEL_ON=true; // set to false when regional diesel drops below $5.80
   function estTab(t){ EST_TAB=t; var zr=document.getElementById('zone-row'); if(zr){ zr.style.display = t==='once' ? '' : 'none'; } var lr=document.getElementById('local-row'); if(lr){ lr.style.display = FUEL_ON ? '' : 'none'; } document.getElementById('pane-once').classList.toggle('active',t==='once'); document.getElementById('pane-rec').classList.toggle('active',t==='rec'); document.getElementById('tab-once').setAttribute('aria-selected',t==='once'); document.getElementById('tab-rec').setAttribute('aria-selected',t==='rec'); est(); }
   function estStep(id,d){ var el=document.getElementById(id); el.value=Math.max(0,(parseInt(el.value)||0)+d); est(); }
   function tier(n,first,after){ return n<=7 ? n*first : 7*first+(n-7)*after; }
