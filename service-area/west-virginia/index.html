@@ -924,7 +924,7 @@
 
 <div class="call-bar">
   <a class="btn btn-accent" href="tel:+15672022660">Call</a>
-  <a class="btn btn-ghost-light" href="sms:+15672022660?&body=Hi%20MOPS%2C%20I%27d%20like%20a%20shredding%20quote.%20Town%3A%20">Text</a>
+  <a class="btn btn-ghost-light" href="sms:+15672022660?body=Hi%20MOPS%2C%20I%27d%20like%20a%20shredding%20quote.%20Town%3A%20" data-sms="1">Text</a>
   <a class="btn btn-ghost-light" href="/contact/">Quote</a>
 </div>
 
@@ -1156,6 +1156,7 @@
     return true;
   }
 
+  (function(){ var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1); if(!ios) return; document.querySelectorAll('a[data-sms]').forEach(function(a){ a.setAttribute('href', a.getAttribute('href').replace('?body=','&body=')); }); })();
   window.addEventListener('error', function(ev){ if(ev && ev.message && /replaceState|pushState/.test(ev.message)){ ev.preventDefault(); } });
 </script>
 

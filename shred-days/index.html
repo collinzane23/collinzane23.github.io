@@ -500,14 +500,25 @@
 
   /* ---------- Sticky mobile call bar ---------- */
   .sd-event{ display:flex; gap:20px; align-items:flex-start; border:1px solid var(--line); background:var(--white); padding:20px; border-radius:4px; margin-top:12px; }
-  .sd-date{ flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:84px; height:84px; background:var(--ink); color:var(--white); border-radius:4px; }
-  .sd-month{ font-size:.8rem; letter-spacing:.12em; font-weight:600; }
+  .sd-date{ flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:96px; height:96px; background:var(--ink); color:var(--white); border-radius:4px; }
+  .sd-month{ font-size:.78rem; letter-spacing:.1em; font-weight:600; white-space:nowrap; }
   .sd-day{ font-size:1.5rem; font-weight:700; line-height:1.1; }
   .sd-signup{ border:1px solid var(--line); background:var(--white); padding:24px; border-radius:4px; }
   .sd-signup .field{ margin-bottom:14px; }
   .sd-signup label{ display:block; font-weight:600; font-size:.92rem; margin-bottom:6px; }
   .sd-signup input{ width:100%; padding:12px; border:1px solid var(--line); border-radius:3px; font:inherit; }
-  @media (max-width:800px){ #upcoming .wrap{ grid-template-columns:1fr; } }
+  @media (max-width:800px){ #upcoming .wrap{ grid-template-columns:1fr !important; } }
+  .sd-live{ border-color:var(--accent, #2FD1E8); box-shadow:0 10px 30px rgba(15,38,60,.08); }
+  .sd-yr{ font-size:.72rem; opacity:.75; margin-top:2px; }
+  .sd-tags{ display:flex; gap:6px; flex-wrap:wrap; }
+  .sd-tag{ font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; font-weight:600; padding:3px 8px; border:1px solid var(--line); border-radius:3px; color:var(--slate); }
+  .sd-tag.free{ background:var(--ink); color:#fff; border-color:var(--ink); }
+  .sd-bring{ background:var(--paper); border-left:3px solid var(--ink); padding:10px 14px; font-size:.95rem; color:var(--graphite); margin-bottom:14px; }
+  .sd-actions{ display:flex; gap:10px; flex-wrap:wrap; }
+  .sd-actions .btn{ padding:10px 16px; font-size:.95rem; }
+  .annc{ background:var(--ink); color:#fff; text-align:center; padding:10px 16px; font-size:.95rem; }
+  .annc a{ color:#2FD1E8; font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+  @media (max-width:600px){ .sd-event{ flex-direction:column; } .sd-date{ width:100%; height:auto; justify-content:center; flex-direction:row; gap:8px; padding:10px; } .sd-yr{ margin-top:0; } }
   .call-bar{ display:none; }
   @media (max-width:760px){
     .call-bar{ display:flex; position:fixed; left:0; right:0; bottom:0; z-index:50; background:var(--ink); padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px)); gap:10px; box-shadow:0 -8px 24px rgba(0,0,0,.25); }
@@ -792,6 +803,7 @@
     .contact-grid{ grid-template-columns:1fr; }
   }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Event", "name": "Shred It Day \u2013 Bucyrus (free community shredding)", "startDate": "2026-10-20T10:00:00-04:00", "endDate": "2026-10-20T13:00:00-04:00", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "location": {"@type": "Place", "name": "Bucyrus United Methodist Church", "address": {"@type": "PostalAddress", "streetAddress": "227 S Walnut St", "addressLocality": "Bucyrus", "addressRegion": "OH", "postalCode": "44820", "addressCountry": "US"}}, "image": ["https://www.mopsops.com/og-image.png"], "description": "Free community Shred Day hosted by the Crawford County Chamber of Commerce with Bucyrus United Methodist Church. On-site shredding by Mid-Ohio Paper Shredding. Bring up to 4 boxes of personal documents per car; paper only.", "organizer": {"@type": "Organization", "name": "Crawford County Chamber of Commerce"}, "performer": {"@type": "Organization", "name": "Mid-Ohio Paper Shredding", "url": "https://www.mopsops.com/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.mopsops.com/shred-days/"}, "isAccessibleForFree": true, "url": "https://www.mopsops.com/shred-days/#upcoming"}</script>
 </head>
 <body>
 
@@ -878,17 +890,27 @@
       <div>
         <div class="eyebrow-line" style="color:var(--slate);"><span class="dot"></span> Upcoming Shred Days</div>
         <h2>Next public Shred Day</h2>
-        <div class="sd-event">
-          <div class="sd-date"><span class="sd-month">FALL</span><span class="sd-day">2026</span></div>
-          <div>
-            <h3 style="margin:0 0 4px;">Galion area &mdash; date and location being finalized</h3>
-            <p style="margin:0; color:var(--slate);">A Saturday morning event, open to the public, with a limit per car so everyone gets a turn. Paper only unless noted. Join the reminder list and we'll email you the date, location and what to bring as soon as it's set.</p>
+        <p style="color:var(--slate); margin-top:-6px;">Bring your boxes, protect your identity, and see the shredder work. It&rsquo;s free.</p>
+        <div class="sd-event sd-live">
+          <div class="sd-date"><span class="sd-month">TUE &middot; OCT</span><span class="sd-day">20</span><span class="sd-yr">2026</span></div>
+          <div style="flex:1;">
+            <div class="sd-tags"><span class="sd-tag free">Free</span><span class="sd-tag">Open to the public</span><span class="sd-tag">Paper only</span></div>
+            <h3 style="margin:6px 0 4px;">Shred It Day &mdash; Bucyrus</h3>
+            <p style="margin:0 0 10px; color:var(--graphite);"><strong>10:00 AM &ndash; 1:00 PM</strong> &middot; Bucyrus United Methodist Church<br><a href="https://www.google.com/maps/search/?api=1&query=227+S+Walnut+St+Bucyrus+OH+44820" target="_blank" rel="noopener">227 S Walnut St, Bucyrus, OH 44820</a></p>
+            <p style="margin:0 0 10px; color:var(--slate);">Hosted by the <strong>Crawford County Chamber of Commerce</strong> in partnership with Bucyrus United Methodist Church. Our truck will be on site &mdash; drive up, hand over your boxes, and watch them shredded.</p>
+            <div class="sd-bring"><strong>What to bring</strong> &mdash; up to <strong>4 boxes</strong> per car of personal documents: old tax records, bank statements, medical records, junk mail with your name on it. Staples and paper clips are fine. Please leave binders, plastic and electronics at home.</div>
+            <div class="sd-actions">
+              <a class="btn btn-accent" href="/shred-it-day-bucyrus.ics" download>Add to calendar</a>
+              <a class="btn btn-ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shred+It+Day+%E2%80%93+Bucyrus+(free+community+shredding)&dates=20261020T140000Z/20261020T170000Z&details=Free+community+Shred+Day+hosted+by+the+Crawford+County+Chamber+of+Commerce.+Shredding+by+Mid-Ohio+Paper+Shredding.+Up+to+4+boxes+per+car%2C+paper+only.+mopsops.com%2Fshred-days%2F&location=Bucyrus+United+Methodist+Church%2C+227+S+Walnut+St%2C+Bucyrus%2C+OH+44820" target="_blank" rel="noopener">Google Calendar</a>
+              <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=227+S+Walnut+St+Bucyrus+OH+44820" target="_blank" rel="noopener">Directions</a>
+            </div>
           </div>
         </div>
-        <p style="font-size:.9rem; color:var(--slate); margin-top:14px;">Hosting one? Your event can be listed here. Call (567) 202-2660.</p>
+        <p style="font-size:.9rem; color:var(--slate); margin-top:14px;">Businesses welcome too &mdash; if you have more than four boxes, <a href="/contact/">book a visit</a> and we'll come to you. Hosting an event of your own? Call (567) 202-2660 and it can be listed here.</p>
       </div>
       <div class="sd-signup">
-        <h3 style="margin-top:0;">Remind me when a date is set</h3>
+        <h3 style="margin-top:0;">Get a reminder for this one, and the next</h3>
+        <p style="font-size:.92rem; color:var(--slate); margin-top:-4px;">We&rsquo;ll email you the day before Shred It Day, and again whenever a new public event is scheduled near you.</p>
         <form id="sd-form" action="https://formsubmit.co/contact@mopsops.com" method="POST" onsubmit="return prepSd(event)">
           <input type="hidden" name="_subject" value="Shred Day reminder list signup">
           <input type="hidden" name="_template" value="table">
@@ -918,7 +940,7 @@
 
 <div class="call-bar">
   <a class="btn btn-accent" href="tel:+15672022660">Call</a>
-  <a class="btn btn-ghost-light" href="sms:+15672022660?&body=Hi%20MOPS%2C%20I%27d%20like%20a%20shredding%20quote.%20Town%3A%20">Text</a>
+  <a class="btn btn-ghost-light" href="sms:+15672022660?body=Hi%20MOPS%2C%20I%27d%20like%20a%20shredding%20quote.%20Town%3A%20" data-sms="1">Text</a>
   <a class="btn btn-ghost-light" href="/contact/">Quote</a>
 </div>
 
@@ -1151,7 +1173,8 @@
   }
 
   function prepSd(e){ if(document.getElementById('sd-honey').value){ e.preventDefault(); return false; } var b=e.target.querySelector('button[type=submit]'); b.disabled=true; b.textContent='Adding\u2026'; return true; }
-  (function(){ try{ if(new URLSearchParams(location.search).get('signed')){ var n=document.getElementById('sd-note'); if(n){ n.innerHTML='<strong style="color:var(--ink);">You\u2019re on the list.</strong> We\u2019ll email you as soon as the date is set.'; } var f=document.getElementById('sd-form'); if(f){ f.querySelectorAll('input:not([type=hidden])').forEach(function(i){ i.value=''; }); } var u=document.getElementById('upcoming'); if(u) u.scrollIntoView(); } }catch(err){} })();
+  (function(){ try{ if(new URLSearchParams(location.search).get('signed')){ var n=document.getElementById('sd-note'); if(n){ n.innerHTML='<strong style="color:var(--ink);">You\u2019re on the list.</strong> We\u2019ll email you a reminder before the event.'; } var f=document.getElementById('sd-form'); if(f){ f.querySelectorAll('input:not([type=hidden])').forEach(function(i){ i.value=''; }); } var u=document.getElementById('upcoming'); if(u) u.scrollIntoView(); } }catch(err){} })();
+  (function(){ var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1); if(!ios) return; document.querySelectorAll('a[data-sms]').forEach(function(a){ a.setAttribute('href', a.getAttribute('href').replace('?body=','&body=')); }); })();
   window.addEventListener('error', function(ev){ if(ev && ev.message && /replaceState|pushState/.test(ev.message)){ ev.preventDefault(); } });
 </script>
 

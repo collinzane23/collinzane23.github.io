@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mid-Ohio Paper Shredding//Shred Days//EN
+BEGIN:VEVENT
+UID:shred-it-day-bucyrus-2026-10-20@mopsops.com
+DTSTAMP:20261017T120000Z
+DTSTART;TZID=America/New_York:20261020T100000
+DTEND;TZID=America/New_York:20261020T130000
+SUMMARY:Shred It Day – Bucyrus (free community shredding)
+LOCATION:Bucyrus United Methodist Church\, 227 S Walnut St\, Bucyrus\, OH 44820
+DESCRIPTION:Free community Shred Day hosted by the Crawford County Chamber of Commerce. Shredding by Mid-Ohio Paper Shredding. Up to 4 boxes per car\, paper only. Details: https://www.mopsops.com/shred-days/
+URL:https://www.mopsops.com/shred-days/
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Shred It Day in Bucyrus is tomorrow
+END:VALARM
+END:VEVENT
+END:VCALENDAR
